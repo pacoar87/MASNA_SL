@@ -12,6 +12,13 @@ from scipy.stats.stats import ttest_ind
 import random
 random.seed( 0)
 
+#Introduction:
+#For the present project the data from https://www.kaggle.com/keremdlkmn/student-alcohol-data-science/data
+#was used. The data contains socioeconomical information of portuguesse students and some
+#result variables G1, G2, G3, the last variable was used as target since that it was
+#the final grade of portuguesse course. The features are compossed by some information related
+#with social characteristics, use of time, student plans ann desires, parent caracteristics, etc.
+    
 ##Setting the working directory
 os.chdir("C:/Users/paco_/Documents/MASNA/Machine Learning/Final_Project")
 ##Loading the data
@@ -411,19 +418,22 @@ print('The micro precision of the model with the test data is:' + ' ' +str(round
 print('The macro f1 score of the model with the test data is:' + ' ' +str(round(f1_macro,2)))
 print('The micro f1 score of the model with the test data is:' + ' ' +str(round(f1_micro,2)))
 
-Results:
-    The task selected for this project has particular features: first the original task
-    was a regression problem due to the target variable was an continuous one. Based on
-    the information available on internet this variable was discretized taking into account
-    the minimum value for approving a course. Since that the course failing is a very rare
-    event the classes were unbalanced and the models tend to overestimate the importance of
-    the 'Approving' event which causes problems in the model fitting. Two models were
-    essayed for fitting the target label: random forest and support vector machines.
-    For tunning the parametters the model an intensive searching was implemented 
-    and using the Jaccard index (recomended for unbalanced classes) the best combination
-    of parammeters was selected for fitting the models. As we expected, the models fitted 
-    the most common event very well while the rare event was underepresented in the model.
-    In a second step, a resampling technique was used for improving the results. This technique
-    is used for set the training sets, correcting the underepresentation of the target event.
-    A light improving was observed in the random forest model while the same results were observed
-    in the support vector machine model. 
+#Results:
+#    The task selected for this project has particular features: first the original task
+#    was a regression problem due to the target variable was an continuous one. Based on
+#    the information available on internet this variable was discretized taking into account
+#    the minimum value for approving a course. Since that the course failing is a very rare
+#    event the classes were unbalanced and the models tend to overestimate the importance of
+#    the 'Approving' event which causes problems in the model fitting. Two models were
+#    essayed for fitting the target label: random forest and support vector machines.
+#    For tunning the parametters the model an intensive searching was implemented 
+#    and using the Jaccard index (recomended for unbalanced classes) the best combination
+#    of parammeters was selected for fitting the models. As we expected, the models fitted 
+#    the most common event very well while the rare event was underepresented in the model.
+#    In a second step, a resampling technique was used for improving the results. This technique
+#    is used for set the training sets, correcting the underepresentation of the target event.
+#    A light improving was observed in the random forest model while the same results were observed
+#    in the support vector machine model. The most important features in the model were the school origin
+#    previous faiure courses, mother education, age, weekend alcohol comsumption, time devoted to study
+#    father's education, time devoted to travel, free time, among others. Additional variables were
+#    ommited from model in the exploratory previous step.
